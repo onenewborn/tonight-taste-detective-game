@@ -1,0 +1,17 @@
+{
+  "name": "今晚吃什么侦探局",
+  "short_name": "吃什么侦探局",
+  "description": "用 8 次选择抓住你现在真正想吃的那一口。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fff8eb",
+  "theme_color": "#9d261f",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
