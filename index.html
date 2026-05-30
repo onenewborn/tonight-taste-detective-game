@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>今晚吃什么侦探局</title>
+    <meta
+      name="description"
+      content="用 8 次选择抓住你现在真正想吃的那一口，生成今日饭点信号和点单暗号。"
+    />
+    <meta name="theme-color" content="#9d261f" />
+    <meta name="apple-mobile-web-app-title" content="吃什么侦探局" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="今晚吃什么侦探局" />
+    <meta
+      property="og:description"
+      content="8 轮快速选择，测出你今晚最想吃的那一口。"
+    />
+    <meta property="og:image" content="./share-card.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icon.svg" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="stage" aria-labelledby="game-title">
+        <div class="kitchen-light" aria-hidden="true"></div>
+        <div class="topbar">
+          <span class="brand">今晚吃什么侦探局</span>
+          <button class="icon-button" id="resetTop" type="button" aria-label="重新开始">
+            <span></span>
+          </button>
+        </div>
+
+        <div class="game-grid">
+          <section class="intro-panel" id="introPanel">
+            <p class="kicker">Taste Guessing Game</p>
+            <h1 id="game-title">用 8 次选择，抓住你现在真正想吃的那一口</h1>
+            <p class="intro-copy">
+              不问“你想吃什么”这种难题。你只需要快速挑选更馋的香气、口感和场景，
+              系统会推断你的今日口味画像，并给出一份能立刻勾起食欲的菜单。
+            </p>
+            <div class="intro-actions">
+              <button class="primary-button" id="startGame" type="button">开始侦查</button>
+              <button class="ghost-button" id="quickResult" type="button">直接开饭</button>
+            </div>
+          </section>
+
+          <section class="play-panel" id="playPanel" hidden>
+            <div class="round-head">
+              <div>
+                <p class="kicker" id="roundLabel">Round 1 / 8</p>
+                <h2 id="promptTitle">先闻到哪种味道，你会立刻饿？</h2>
+              </div>
+              <div class="timer" aria-label="本轮剩余时间">
+                <svg viewBox="0 0 44 44" role="img" aria-hidden="true">
+                  <circle cx="22" cy="22" r="18"></circle>
+                  <circle id="timerRing" cx="22" cy="22" r="18"></circle>
+                </svg>
+                <span id="timerText">18</span>
+              </div>
+            </div>
+
+            <div class="plate-zone">
+              <div class="steam steam-a"></div>
+              <div class="steam steam-b"></div>
+              <div class="plate">
+                <div class="plate__inner">
+                  <span id="plateHint">等待第一份线索</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="choices" id="choices" aria-live="polite"></div>
+
+            <div class="scanner">
+              <div>
+                <span>食欲雷达</span>
+                <strong id="radarText">尚未锁定</strong>
+              </div>
+              <div class="meter">
+                <span id="meterFill"></span>
+              </div>
+            </div>
+          </section>
+
+          <aside class="profile-panel" aria-label="口味画像">
+            <div class="profile-card">
+              <p class="kicker">Live Profile</p>
+              <h2>你的饭点信号</h2>
+              <div class="signal-list" id="signalList"></div>
+            </div>
+
+            <div class="result-card" id="resultCard" hidden>
+              <p class="kicker">Final Match</p>
+              <h2 id="resultTitle">今晚适合吃</h2>
+              <p id="resultDesc"></p>
+              <div class="menu-board" id="menuBoard"></div>
+              <div class="result-actions">
+                <button class="primary-button" id="shareResult" type="button">分享结果</button>
+                <button class="ghost-on-dark" id="playAgain" type="button">再测一次</button>
+              </div>
+              <p class="share-note" id="shareNote" aria-live="polite"></p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script src="./game.js"></script>
+  </body>
+</html>
